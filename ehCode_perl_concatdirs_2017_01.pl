@@ -1,7 +1,7 @@
 #================================================================
 #
 # Repo Name:        EHW-MergeUnsavedNPPFiles 
-# File Name:        ehCode_perl_concatdirs_2017_01.pl
+# File Name:        ehCode_perl_concatdirs_2017_02.pl
 # Date Created:     10/05/15
 # Date Modified:    02/13/17 
 # Programmer:       Eric Hepperle
@@ -38,12 +38,6 @@ print "\t\$nppPath = \"$nppPath\"\n\n";
 # Finds all files with 'new' in the title, which is the format
 #  used by NotePad++ unsaved files.
 my @dirContents = `ls "$nppPath" | grep 'new '`;
-
-
-# chdir($nppPath);
-
-# confirm chdir:
-# print "\tCurrent working directory after change is: \n" . `pwd`;
 
 print "\$dirContents:\n\n";
 
@@ -84,13 +78,8 @@ sub joinFileContents {
         
         # print bar and contents
         $outStr .= nameBar($filename) . "\n\n" . $fileContents . "\n\n";
-        
 	}
-=begin comment    
-     print nameBar("Eric's Name Bar", 69);
-     print nameBar("Apples", 48);
-     print nameBar("Incredible Hulk");
-=cut    
+
     return $outStr;
 }
 
@@ -98,30 +87,12 @@ sub nameBar {
     
     my ($name, $barlen) = @_;
     
-    
     # default bar length.
     my $barLen = $barlen ? $barlen : 60;
     my $nameLen = length($name);
     my $topBar = '#'x$barLen;
     my $bottomBar = '#'x$barLen;
     
-=begin comment    
-    print "\$name = $name\n\n";
-    print "\$topBar = $topBar\n";
-    print "\$barLen = $barLen\n";
-    print "\$nameLen = $nameLen\n";
-    print "\$bottomBar = $bottomBar\n";
-=cut   
-    my $nameStartPoint = int($barLen / 2) - int($nameLen / 2);
-    my $barCharsFront = $nameStartPoint - 1;
-    my $barCharsRear = $barLen - ($barCharsFront + $nameLen);
-    my $midBar = '##' . ' 'x ($barCharsFront - 2) . $name . ' 'x ($barCharsRear - 2) . '##';
-
-=begin comment    
-    print "NAME WILL START AT CHARACTER [$nameStartPoint] of the bar\n\n";
-    print "\$barCharsFront = $barCharsFront\n\n";
-    print "\$midBar =\n$midBar\n" . length($midBar) . "\n\n";
-=cut    
     # my $fullBar = "\t$topBar\n\t$midBar\n\t$bottomBar\n\n";
     my $fullBar = "\t$topBar\n\t$midBar\n\t$bottomBar\n\n";
     return $fullBar;
@@ -148,5 +119,7 @@ sub nameBar {
 #             - Cleaned up file and section documentation.
 #             - STUCK trying to figure out how to get
 #                  %APPDATA% path in GitBash Perl on Win 10.
+#             - Still not working so doing some cleanup.
+#                  Removing comments and debugs.
 #
 #================================================================
