@@ -1,10 +1,11 @@
 #================================================================
 #
 # Repo Name:        EHW-MergeUnsavedNPPFiles 
-# File Name:        ehCode_perl_concatdirs_2017_02.pl
+# File Name:        concat-text-files.pl
 # Date Created:     10/05/15
-# Date Modified:    02/13/17 
+# Date Modified:    05/30/18 
 # Programmer:       Eric Hepperle
+# Version:          3.00
 #
 # Purpose: Get all files in dir and concat them together, adding a 
 #    filename to the top of each new section. This is most useful
